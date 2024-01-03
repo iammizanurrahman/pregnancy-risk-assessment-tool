@@ -22,11 +22,11 @@ The Pregnancy Risk Assessment Tool is a web application designed to assess and a
 
 ### Input View
 ![Input View](interface/Input.jpg)
-*Caption for Input View*
+*Input Parameters for Pregnancy Risk Assessment*
 
 ### Output View
 ![Output View](interface/Output.jpg)
-*Caption for Output View*
+*Assessment Result with Risk Level and Parameters*
 
 ## Contribution Guidelines
 
