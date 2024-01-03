@@ -30,4 +30,4 @@ This tool is not a substitute for professional medical advice. Always consult wi
 
 1. **Clone the Repository:**
    ```bash
-   git clone https://github.com/your-username/Pregnancy-Risk-Assessment-Tool.git
+   git clone https://github.com/iammizanurrahman/Pregnancy-Risk-Assessment-Tool.git
