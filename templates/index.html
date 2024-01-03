@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comprehensive Pregnancy Risk Assessment Tool</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Comprehensive Pregnancy Risk Assessment Tool</h1>
+
+        {% if result %}
+        <div class="result-container">
+            <h2>Assessment Result</h2>
+            {% if result.params %}
+            <ul>
+                {% for param, value in result.params.items() %}
+                <li>{{ param }}: {{ value }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+            <p class="risk-level">Risk Level: {{ result.risk_level }}</p>
+        </div>
+        {% else %}
+        <form method="post" class="assessment-form">
+                <!-- Basic parameters -->
+                <div class="form-group">
+                    <label for="age">Age:</label>
+                    <input type="number" class="form-control" name="age" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Health Conditions:</label><br>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" name="health_conditions" value="diabetes">
+                        <label class="form-check-label">Diabetes</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" name="health_conditions" value="hypertension">
+                        <label class="form-check-label">Hypertension</label>
+                    </div>
+                    <!-- Add more health conditions -->
+                </div>
+
+                <div class="form-group">
+                    <label>Lifestyle Factors:</label><br>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" name="lifestyle_factors" value="smoking">
+                        <label class="form-check-label">Smoking</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" name="lifestyle_factors" value="excessive_alcohol">
+                        <label class="form-check-label">Excessive Alcohol</label>
+                    </div>
+                    <!-- Add more lifestyle factors -->
+                </div>
+
+                <!-- Additional parameters -->
+                <div class="form-group">
+                    <label for="bmi">Body Mass Index (BMI):</label>
+                    <input type="number" step="0.1" class="form-control" name="bmi">
+                </div>
+
+                <div class="form-group">
+                    <label for="nutritional_status">Nutritional Status:</label>
+                    <select class="form-control" name="nutritional_status">
+                        <option value="excellent">Excellent</option>
+                        <option value="good">Good</option>
+                        <option value="poor">Poor</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="exercise_habits">Exercise Habits:</label>
+                    <select class="form-control" name="exercise_habits">
+                        <option value="high">High</option>
+                        <option value="moderate">Moderate</option>
+                        <option value="low">Low</option>
+                    </select>
+                </div>
+
+                <!-- Add more parameters with Bootstrap styling -->
+
+                <div class="form-group">
+                    <label for="psychological_health">Psychological Health:</label>
+                    <select class="form-control" name="psychological_health">
+                        <option value="excellent">Excellent</option>
+                        <option value="good">Good</option>
+                        <option value="poor">Poor</option>
+                    </select>
+                </div>
+
+                <!-- Add more parameters with Bootstrap styling -->
+
+                <div class="form-group">
+                    <label for="family_planning_history">Family Planning History:</label>
+                    <select class="form-control" name="family_planning_history">
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+                </div>
+
+                <!-- Add more parameters with Bootstrap styling -->
+
+                <div class="form-group">
+                    <label for="infections_and_immunizations">Infections and Immunizations:</label>
+                    <select class="form-control" name="infections_and_immunizations">
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+                </div>
+
+                <!-- Add more parameters with Bootstrap styling -->
+
+                <div class="form-group">
+                    <label for="environmental_exposures">Environmental Exposures:</label>
+                    <select class="form-control" name="environmental_exposures">
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+                </div>
+
+                <!-- Add more parameters with Bootstrap styling -->
+
+                <div class="form-group">
+                    <label for="blood_pressure">Blood Pressure:</label>
+                    <select class="form-control" name="blood_pressure">
+                        <option value="normal">Normal</option>
+                        <option value="high">High</option>
+                    </select>
+                </div>
+
+                <!-- Add more parameters with Bootstrap styling -->
+
+                <div class="form-group">
+                    <label for="blood_sugar_levels">Blood Sugar Levels:</label>
+                    <select class="form-control" name="blood_sugar_levels">
+                        <option value="normal">Normal</option>
+                        <option value="elevated">Elevated</option>
+                    </select>
+                </div>
+
+                <!-- Add more parameters with Bootstrap styling -->
+
+                <div class="form-group">
+                    <label for="partner_health">Partner's Health:</label>
+                    <select class="form-control" name="partner_health">
+                        <option value="excellent">Excellent</option>
+                        <option value="good">Good</option>
+                        <option value="poor">Poor</option>
+                    </select>
+                </div>
+
+                <!-- Add more parameters with Bootstrap styling -->
+
+                <div class="form-group">
+                    <label for="medication_and_supplement_usage">Medication and Supplement Usage:</label>
+                    <select class="form-control" name="medication_and_supplement_usage">
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+                </div>
+
+                <!-- Add more parameters with Bootstrap styling -->
+
+                <div class="form-group">
+                    <label for="number_of_previous_pregnancies">Number of Previous Pregnancies:</label>
+                    <input type="number" class="form-control" name="number_of_previous_pregnancies" min="0">
+                </div>
+
+                <!-- Add more parameters with Bootstrap styling -->
+
+                <div class="form-group">
+                    <label for="dietary_habits">Dietary Habits:</label>
+                    <select class="form-control" name="dietary_habits">
+                        <option value="excellent">Excellent</option>
+                        <option value="good">Good</option>
+                        <option value="poor">Poor</option>
+                    </select>
+                </div>
+
+                <!-- Add more parameters with Bootstrap styling -->
+
+                <div class="form-group">
+                    <label for="allergies">Allergies:</label>
+                    <select class="form-control" name="allergies">
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Chronic Health Conditions:</label><br>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" name="chronic_health_conditions" value="thyroid_disorders">
+                        <label class="form-check-label">Thyroid Disorders</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" name="chronic_health_conditions" value="autoimmune_diseases">
+                        <label class="form-check-label">Autoimmune Diseases</label>
+                    </div>
+                    <!-- Add more chronic health conditions -->
+                </div>
+
+                <div class="form-group">
+                    <label for="occupational_hazards">Occupational Hazards:</label>
+                    <select class="form-control" name="occupational_hazards">
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+                </div>
+
+                <!-- Add more parameters with Bootstrap styling -->
+
+                <div class="form-group">
+                    <label for="social_support">Social Support:</label>
+                    <select class="form-control" name="social_support">
+                        <option value="excellent">Excellent</option>
+                        <option value="good">Good</option>
+                        <option value="low">Low</option>
+                    </select>
+                </div>
+
+                <!-- Add more parameters with Bootstrap styling -->
+
+                <div class="form-group">
+                    <label for="routine_checkups">Routine Check-ups:</label>
+                    <select class="form-control" name="routine_checkups">
+                        <option value="regular">Regular</option>
+                        <option value="irregular">Irregular</option>
+                    </select>
+                </div>
+
+                <!-- Add more parameters with Bootstrap styling -->
+
+                <div class="form-group">
+                    <label for="educational_background">Educational Background:</label>
+                    <select class="form-control" name="educational_background">
+                        <option value="high">High</option>
+                        <option value="moderate">Moderate</option>
+                        <option value="low">Low</option>
+                    </select>
+                </div>
+
+                <!-- Add more parameters with Bootstrap styling -->
+
+                <div class="form-group">
+                    <label for="substance_use">Substance Use:</label>
+                    <select class="form-control" name="substance_use">
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+                </div>
+
+                <!-- Add more parameters with Bootstrap styling -->
+
+                <div class="form-group">
+                    <label for="financial_stability">Financial Stability:</label>
+                    <select class="form-control" name="financial_stability">
+                        <option value="excellent">Excellent</option>
+                        <option value="good">Good</option>
+                        <option value="low">Low</option>
+                    </select>
+                </div>
+
+                <!-- Add more parameters with Bootstrap styling -->
+
+                <div class="form-group">
+                    <label for="sleep_patterns">Sleep Patterns:</label>
+                    <select class="form-control" name="sleep_patterns">
+                        <option value="excellent">Excellent</option>
+                        <option value="good">Good</option>
+                        <option value="poor">Poor</option>
+                    </select>
+                </div>
+
+                <!-- Add more parameters with Bootstrap styling -->
+
+                <input type="submit" class="btn btn-primary mt-3" value="Assess Risk">
+            </form>
+        {% endif %}
+    </div>
+</body>
+</html>
