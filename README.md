@@ -18,6 +18,16 @@ The Pregnancy Risk Assessment Tool is a web application designed to assess and a
 - **Proactive Management:** Promotes proactive maternal health management.
 - **Evidence-Based Decision-Making:** Supports evidence-based decision-making during preconception and pregnancy.
 
+## Web App Interface
+
+### Input View
+![Input View](interface/Input.jpg)
+*Caption for Input View*
+
+### Output View
+![Output View](interface/Output.jpg)
+*Caption for Output View*
+
 ## Contribution Guidelines
 
 Contributions are welcome! Whether you're a developer, healthcare professional, or enthusiast, feel free to contribute to the development and improvement of this tool. Your expertise can help enhance the accuracy and effectiveness of pregnancy risk assessments.
